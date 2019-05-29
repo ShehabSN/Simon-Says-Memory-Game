@@ -18,7 +18,6 @@ $(document).on("keypress", function() {
 $(".btn").click(function() {
   var userChosenColor = $(this).attr("id");
   userSequence.push(userChosenColor);
-
   animatePress(userChosenColor);
   playSound(userChosenColor);
   checkAnswer(userSequence.length - 1);
@@ -57,7 +56,6 @@ function animatePress(currentColour) {
 function checkAnswer(currentLevel) {
   if (gameSequence[currentLevel] === userSequence[currentLevel]) {
     if ((gameSequence.length) === (userSequence.length)) {
-
       setTimeout(function() {
         nextSequence();
       }, 1000);
@@ -66,12 +64,10 @@ function checkAnswer(currentLevel) {
   } else {
     playSound("wrong");
     $("body").addClass("game-over");
-
     setTimeout(function() {
       $("body").removeClass("game-over");
     }, 200);
     $("h1").text("Game Over, Press Any Key to Restart");
-
     reset();
   }
 }
